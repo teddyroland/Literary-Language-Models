@@ -8,4 +8,31 @@ The full training pipeline includes the creation and submission of Slurm jobs, f
 * run_predict.sh : Evaluate BERT by making predictions on new data and measuring loss. Examples must be created in advance, using the script create_prediction_sample.py
 * cleanup_workspace.sh : Save prediction results and vocabulary, gzip the model directory, delete workspace folder
 
+The pipeline expects to find the following folder structure:
+
+ |-code
+ | |-pipeline
+ | |-programs
+ |-data
+ | |-model-config
+ | |-text-dataset
+ | | |-eval
+ | | | |-smash
+ | | | |-wiki
+ | | |-test
+ | | | |-smash
+ | | | |-wiki
+ | | |-train
+ | | | |-smash
+ | | | |-wiki
+ | |-text-examples
+ | |-text-metadata
+ |-results
+ | |-model-archive
+ | |-model-eval
+ | |-model-vocab
+ |-slurm
+ |-workspace
+
+
 Model training and prediction uses the PyTorch/HuggingFace framework. Wordpiece vocabulary is learned using TensorFlow Text.
