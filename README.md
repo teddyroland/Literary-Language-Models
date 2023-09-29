@@ -6,5 +6,6 @@ The full training pipeline includes the creation and submission of Slurm jobs, f
 * run_pretrain.sh : Train BERT model. Note that HPC's often limit the time that jobs may run, so run_pretrain.sh is designed to be called multiple times, with restarts from a given checkpoint.
 * run_glue.sh : Calls the Huggingface [run_glue.py](https://github.com/huggingface/transformers/blob/main/examples/pytorch/text-classification/run_glue.py) script. This script does not grid-search over hyper-parameters and should be understood as a first pass evaluation on the [GLUE benchmark](https://gluebenchmark.com).
 * run_predict.sh : Evaluate BERT by making predictions on new data and measuring loss. Examples must be created in advance, using the script create_prediction_sample.py
+* cleanup_workspace.sh : Save prediction results and vocabulary, gzip the model directory, delete workspace folder
 
 Model training and prediction uses the PyTorch/HuggingFace framework. Wordpiece vocabulary is learned using TensorFlow Text.
