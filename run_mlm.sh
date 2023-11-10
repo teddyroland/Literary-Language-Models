@@ -6,16 +6,16 @@ cd /literary-language-models/
 
 # Files & Directories
 
-test_data_dir=data/text-dataset/test/wiki
+test_data_dir=data/text-dataset/wiki
 
-example_file=data/examples/wiki_text.jsonl
-parse_file=data/parse/wiki_parse.csv
+example_file=data/text-examples/wiki_dummy.jsonl
+parse_file=workspace/parse/wiki_parse.csv
 
 wiki_model_dir=model/base-0-0/model/
-wiki_mlm_file=results/mlm-loss/wiki_model_wiki_data.csv
+wiki_mlm_file=workspace/mlm-loss/wiki_model_wiki_data.csv
 
 full_model_dir=model/base-25-0/model/
-full_mlm_file=results/mlm-loss/full_model_wiki_data.csv
+full_mlm_file=workspace/mlm-loss/full_model_wiki_data.csv
 
 exp_loss_file=results/expected_loss_wiki_data.csv
 
