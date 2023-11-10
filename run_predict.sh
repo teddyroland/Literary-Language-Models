@@ -12,10 +12,10 @@ example_file=data/text-examples/wiki_dummy.jsonl
 parse_file=workspace/parse/wiki_parse.csv
 
 wiki_model_dir=model/base-0-0/model/
-wiki_loss_file=workspace/predictive-loss/wiki_model_wiki_data.csv
+wiki_loss_file=workspace/loss/wiki_model_wiki_data.csv
 
 full_model_dir=model/base-25-0/model/
-full_loss_file=workspace/predictive-loss/full_model_wiki_data.csv
+full_loss_file=workspace/loss/full_model_wiki_data.csv
 
 exp_loss_file=results/expected_loss.csv
 
