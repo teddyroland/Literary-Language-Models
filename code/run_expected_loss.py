@@ -8,16 +8,16 @@ import pandas as pd
 arg_parser = argparse.ArgumentParser()
 
 arg_parser.add_argument('--parse_file', type=str, required=True)
-arg_parser.add_argument('--wiki_model_mlm_file', type=str, required=True)
-arg_parser.add_argument('--full_model_mlm_file', type=str, required=True)
+arg_parser.add_argument('--wiki_model_loss_file', type=str, required=True)
+arg_parser.add_argument('--full_model_loss_file', type=str, required=True)
 arg_parser.add_argument('--output_file', type=str, required=True)
 
 args = arg_parser.parse_args()
 
 # Load Example Loss & NLP Features
 
-wiki_mlm_df = pd.read_csv(args.wiki_model_mlm_file)
-full_mlm_df = pd.read_csv(args.full_model_mlm_file)
+wiki_loss_df = pd.read_csv(args.wiki_model_loss_file)
+full_loss_df = pd.read_csv(args.full_model_loss_file)
 
 data_parse_df = pd.read_csv(args.parse_file)
 
@@ -25,8 +25,8 @@ data_parse_df = pd.read_csv(args.parse_file)
 
 parse_index = data_parse_df[data_parse_df['ADJ']!=-1].index.tolist()
 
-wiki_mlm_df = wiki_mlm_df.loc[parse_index].reset_index(drop=True)
-full_mlm_df = full_mlm_df.loc[parse_index].reset_index(drop=True)
+wiki_loss_df = wiki_loss_df.loc[parse_index].reset_index(drop=True)
+full_loss_df = full_loss_df.loc[parse_index].reset_index(drop=True)
 data_parse_df = data_parse_df.loc[parse_index].reset_index(drop=True)
 
 # Tag List
@@ -96,8 +96,8 @@ def expected_loss(parse_df, loss_df):
     return expected_loss_dict
 
 
-wiki_loss_dict = expected_loss(data_parse_df, wiki_mlm_df)
-full_loss_dict = expected_loss(data_parse_df, full_mlm_df)
+wiki_loss_dict = expected_loss(data_parse_df, wiki_loss_df)
+full_loss_dict = expected_loss(data_parse_df, full_loss_df)
 
 # Collect Results
 
