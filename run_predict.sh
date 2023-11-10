@@ -12,12 +12,12 @@ example_file=data/text-examples/wiki_dummy.jsonl
 parse_file=workspace/parse/wiki_parse.csv
 
 wiki_model_dir=model/base-0-0/model/
-wiki_mlm_file=workspace/mlm-loss/wiki_model_wiki_data.csv
+wiki_loss_file=workspace/predictive-loss/wiki_model_wiki_data.csv
 
 full_model_dir=model/base-25-0/model/
-full_mlm_file=workspace/mlm-loss/full_model_wiki_data.csv
+full_loss_file=workspace/predictive-loss/full_model_wiki_data.csv
 
-exp_loss_file=results/expected_loss_wiki_data.csv
+exp_loss_file=results/expected_loss.csv
 
 # Sample Passages from Test Set
 
@@ -41,7 +41,7 @@ python code/run_predict.py \
 --model_dir $wiki_model_dir \
 --vocab_file $wiki_model_dir/vocab.txt \
 --example_file $example_file \
---output_file $wiki_mlm_file
+--output_file $wiki_loss_file
 
 # Repeat with Full Model
 
@@ -49,12 +49,12 @@ python code/run_predict.py \
 --model_dir $full_model_dir \
 --vocab_file $full_model_dir/vocab.txt \
 --example_file $example_file \
---output_file $full_mlm_file
+--output_file $full_loss_file
 
 # Compute Expected Loss By Tagged Feature
 
 python code/run_expected_loss.py \
 --parse_file $parse_file \
---wiki_model_mlm_file $wiki_mlm_file \
---full_model_mlm_file $full_mlm_file \
+--wiki_model_loss_file $wiki_loss_file \
+--full_model_loss_file $full_loss_file \
 --output_file $exp_loss_file
