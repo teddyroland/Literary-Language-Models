@@ -14,7 +14,7 @@ Supporting data and additional results can be found in the folder 'workspace'.
 Due to copyright and file size restrictions, the Wikipedia and BookCorpus data cannot be made available in full. The 'data' folder contains demonstration files to show formatting and directory structure expected by the scripts in 'code'.
 - 'text-dataset' contains subdirectories for the BookCorpus and Wikipedia test sets, stored individually. Files are preprocessed with one sentence per line and a double line-break between documents, per BERT standard
 - 'text-examples' contain files with "deprocessed" versions of formatted BERT inputs. Wordpieces are reassembled into whole words and masked words are indicated. (The BERT model uses whole-word masking.)<br><br>
-Deprocessing enables the same example to be processed using different wordpiece vocabularies. In order to prevent data leakage from one model to another, each uses a unique vocabulary learned from its dataset.
+In order to prevent data leakage from one model to another, each model in this project uses a unique vocabulary learned from its training dataset. Deprocessing for storage enables the same example to be re-processed using different wordpiece vocabularies. 
 <!-- end of the list -->
 Models are implemented in the [PyTorch/HuggingFace](https://github.com/huggingface/transformers/tree/main) framework. Wordpiece vocabulary is learned using [Tensorflow Text](https://www.tensorflow.org/text). Morphological features are tagged using [SpaCy](https://spacy.io). Part-of-Speech tags and Supersense tags are from [BookNLP](https://github.com/booknlp/booknlp/tree/main).<br><br>
 Wikipedia articles are from the English-language dump in January 2020. BookCorpus is a replicated version collected from Smashwords in March 2020.
